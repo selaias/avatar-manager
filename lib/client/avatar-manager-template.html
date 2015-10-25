@@ -1,0 +1,44 @@
+<template name="avatarManager">
+  <div class="container">
+    {{> editYourAvatarModal}}
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title">My Avatar</h3>
+      </div>
+      <div class="panel-body panel-row">
+        {{> avatar serviceName='current' size="large"}}
+        <span class="pull-right">
+          <button href="#" id="btnAvatar" data-id="{{this}}" class="btn btn-primary" type="button">
+            Upload
+          </button>
+        </span>
+      </div>
+    </div>
+    <!--       <h2>{{i18n 'profileSettings.availAvatarTitle'}}</h2> -->
+    {{#each userAvatarServices}}
+    {{#if hasService}}
+      {{>avatarService serviceName=this}}
+    {{/if}}
+    {{/each}}
+    {{#if hasGravatar}}
+      {{>avatarService serviceName='gravatar'}}
+    {{/if}}
+      {{>avatarService serviceName='default'}}
+  </div>
+</template>
+
+<template name="avatarService">
+  <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{capitalizeService this.serviceName}} Avatar</h3>
+      </div>
+      <div class="panel-body">
+        {{> avatar serviceName=this.serviceName size="large"}}
+        <span class="pull-right">
+          <button href="#" id="btnDefault" data-id="{{this}}" class="btn btn-default" type="button">
+            Use this
+          </button>
+        </span>
+      </div>
+    </div>
+</template>

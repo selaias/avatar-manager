@@ -60,4 +60,10 @@ Meteor.publish(null, function() {
 });
 ```
 
+The package will look through those services `['twitter', 'facebook', 'google', 'instagram', 'github', 'linkedin']` and will display the respective avatar to choose from.
+
+You can extend this list by calling `AvatarManager.setAvailableServices()`, passing an array of services `['strava', runkeeper']` and an optional boolean parameter if you want to join those arrays or override the defaults with your list. 
+
+You can also enable simple logging messages by `AvatarManager.isLoggingEnabled = true` on startup.
+
 So far this is tested with `splendido:accounts-meld` package which manages linking multiple accounts.

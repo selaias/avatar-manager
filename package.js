@@ -1,7 +1,7 @@
 Package.describe({
   name: 'selaias:avatar-manager',
-  version: '0.0.1',
-  summary: 'Manage your own avatar. Select your avatar from the available list (linked accounts).',
+  version: '0.2.1',
+  summary: 'Manage your own avatar. Upload an image to use as your avatar or select one from the available list (linked accounts).',
   git: 'https://github.com/selaias/avatar-manager.git',
   documentation: 'README.md'
 });
@@ -17,12 +17,11 @@ Package.onUse(function(api) {
   api.use([
     'ecmascript', 
     'check',
-    'underscore',
-    'selaias:avatar', 
-    'selaias:upload-avatar', 
+    'utilities:avatar', 
+    'selaias:avatar-upload', 
     'twbs:bootstrap'], both);
   
-  api.imply(['jparker:gravatar@0.3.1', 'selaias:avatar'], both);
+  api.imply(['jparker:gravatar@0.3.1', 'utilities:avatar'], both);
     
   api.addFiles('lib/both/avatar-manager.js', both);
   
@@ -31,4 +30,6 @@ Package.onUse(function(api) {
   api.addFiles('lib/client/avatar-manager-template.js', 'client');
   
   api.addFiles('lib/server/avatar-manager.js', 'server');
+  
+  api.export('AvatarManager', both);
 });

@@ -1,6 +1,6 @@
 Package.describe({
   name: 'selaias:avatar-manager',
-  version: '0.2.1',
+  version: '0.3.0',
   summary: 'Manage your own avatar. Upload an image to use as your avatar or select one from the available list (linked accounts).',
   git: 'https://github.com/selaias/avatar-manager.git',
   documentation: 'README.md'

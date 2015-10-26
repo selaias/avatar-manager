@@ -66,4 +66,6 @@ You can extend this list by calling `AvatarManager.setAvailableServices()`, pass
 
 You can also enable simple logging messages by `AvatarManager.isLoggingEnabled = true` on startup.
 
+To avoid any issues, you should add the propery `serviceName='current'` wherever you use the default `{{>avatar}}` template: `{{>avatar serviceName='current' size="large" etc..}}`
+
 So far this is tested with `splendido:accounts-meld` package which manages linking multiple accounts.

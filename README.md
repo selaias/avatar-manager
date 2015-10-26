@@ -1,6 +1,6 @@
 avatar-manager
 ----------------
-Manage your own avatar. Select your avatar from the available list (linked accounts). 
+Now you can manage your avatar.  When having more that one accounts linked (eg with `splendido:accounts-meld`) you might need more control of which of your accounts avatar to be displayed as your default avatar. You can upload your avatar image, or select your avatar from the available list (linked accounts).
 
 
 Installation
@@ -17,10 +17,47 @@ This package is using the following packages
 
 ```
 utilities:avatar
-particle4dev:upload-avatar
+selaias:upload-avatar
 ```
 
-and utilizes the `customImageProperty` of the `avatar` package. In combination of the `upload-avatar` package
-we don't need to expose any fields from the `services` object when having more than one account linked.
+**Note
+`selaias:upload-avatar` is forked from `particle4dev:upload-avatar`, updated to work with Meteor > @1.2.0.2.
 
-So far this is tested with `splendido:accounts-meld` package.
+Usage
+------------
+Just place the template on the user profile page.
+
+```js
+{{>avatarManager}}
+```
+
+This package utilizes the `customImageProperty` of the `utilities:avatar` package. Upon user creation a default avatar is assigned in user's profile property `user.profile.image`.  
+
+The `utilities:avatar` package will only read this property, so we don't need to expose any fields from the `services` object for our users.
+
+However, we may need to expose those fields only for the currentUser so he can manage his own avatar.
+
+```javascript
+Meteor.publish(null, function() {
+  if ( !this.userId ) {
+    return;
+  }
+  return Meteor.users.find({_id: this.userId}, { 
+    fields: {
+      "profile": 1,
+      "emailHash": 1,
+      "services.twitter.profile_image_url_https": 1,
+      "services.twitter.profile_image_url": 1,
+      "services.facebook.id": 1,
+      "services.google.picture": 1,
+      "services.github.username": 1,
+      "services.instagram.profile_picture": 1,
+      "services.linkedin.pictureUrl": 1,
+      "services.strava.profile_medium": 1,
+      "services.runkeeper.small_picture": 1,
+    } 
+  });
+});
+```
+
+So far this is tested with `splendido:accounts-meld` package which manages linking multiple accounts.

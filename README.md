@@ -3,6 +3,10 @@ avatar-manager
 Now you can manage your avatar.  When having more that one accounts linked (eg with `splendido:accounts-meld`) you might need more control of which of your accounts avatar to be displayed as your default avatar. You can upload your avatar image, or select your avatar from the available list (linked accounts).
 
 
+
+[DEMO](http://avatarmanager.meteor.com)
+
+
 Installation
 ------------
 In your Meteor project directory, run:

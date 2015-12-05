@@ -5,7 +5,7 @@ Now you can manage your avatar.  When having more that one accounts linked (eg w
 
 
 [DEMO](http://avatarmanager.meteor.com)
-
+------------
 
 Installation
 ------------

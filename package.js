@@ -16,14 +16,11 @@ Package.onUse(function(api) {
     'underscore', 
     'accounts-base',
     'accounts-password',
+    'selaias:avatar-upload@1.3.0', 
     'utilities:avatar@0.9.2', 
     ], both);
   
-  api.use(['templating'], 'client');
-  
-  api.use([
-    'selaias:avatar-upload@1.3.0', 
-    'twbs:bootstrap@3.3.6'], 'client');
+  api.use(['templating', 'twbs:bootstrap@3.3.6'], 'client');
   
   api.imply(['jparker:gravatar@0.3.1', 'utilities:avatar@0.9.2'], both);
     

@@ -1,6 +1,6 @@
 Package.describe({
   name: 'selaias:avatar-manager',
-  version: '0.3.1',
+  version: '0.3.2',
   summary: 'Manage your avatar. Upload an imag or select one from the available list (linked accounts).',
   git: 'https://github.com/selaias/avatar-manager.git',
   documentation: 'README.md'
@@ -10,14 +10,18 @@ var both = ['client', 'server'];
 
 Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
-  api.use(['underscore', 'accounts-base', 'accounts-password'], both);
+  api.use([
+    'ecmascript', 
+    'check',
+    'underscore', 
+    'accounts-base',
+    'accounts-password',
+    'utilities:avatar@0.9.2', 
+    ], both);
   
   api.use(['templating'], 'client');
   
   api.use([
-    'ecmascript', 
-    'check',
-    'utilities:avatar@0.9.2', 
     'selaias:avatar-upload@1.3.0', 
     'twbs:bootstrap@3.3.6'], 'client');
   

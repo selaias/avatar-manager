@@ -35,7 +35,21 @@ Just place the template on the user profile page.
 {{>avatarManager}}
 ```
 
-This package utilizes the `customImageProperty` of the `utilities:avatar` package. Upon user creation a default avatar is assigned in user's profile property `user.profile.image`.  
+This package utilizes the `customImageProperty` of the `utilities:avatar` package. 
+
+You can set the default user avatar by updating the user's profile property `user.profile.image` by calling `AvatarManager.setUserAvatar(user)` 
+
+ `client.js`
+```js
+Accounts.onLogin( () => {
+
+    if (Meteor.user().profile.image) return;
+
+    AvatarManager.setUserAvatar(Meteor.user());
+
+});
+```
+
 
 The `utilities:avatar` package will only read this property, so we don't need to expose any fields from the `services` object for our users.
 

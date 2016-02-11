@@ -1,6 +1,6 @@
 Package.describe({
   name: 'selaias:avatar-manager',
-  version: '0.3.4',
+  version: '0.4.0',
   summary: 'Manage your avatar. Upload an imag or select one from the available list (linked accounts).',
   git: 'https://github.com/selaias/avatar-manager.git',
   documentation: 'README.md'
@@ -29,8 +29,6 @@ Package.onUse(function(api) {
   api.addFiles('lib/client/helpers.js', 'client');
   api.addFiles('lib/client/avatar-manager-template.html', 'client');
   api.addFiles('lib/client/avatar-manager-template.js', 'client');
-  
-  api.addFiles('lib/server/avatar-manager.js', 'server');
   
   api.export('AvatarManager', both);
 });
